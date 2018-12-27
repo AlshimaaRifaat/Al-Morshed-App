@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/vector_smart_object_copy"
+    tools:context=".fragment.SearchFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/search_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_42sdp"
+        android:background="#6e4839">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="البحث"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textSize="@dimen/_19sdp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:textColor="#fff"/>
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+
+    <ImageView
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_below="@+id/search_toolbar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/_17sdp"
+        android:background="@drawable/ellipse3"/>
+    <ImageView
+        android:id="@+id/search_image_logo"
+        android:layout_width="@dimen/_90sdp"
+        android:layout_height="@dimen/_90sdp"
+        android:background="@drawable/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_55sdp"
+        android:scaleType="fitXY"
+        />
+    <EditText
+        android:id="@+id/search_edit_text_search"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_32sdp"
+        android:background="@drawable/edit_text_search"
+        android:layout_below="@id/search_image_logo"
+        android:layout_marginTop="@dimen/_17sdp"
+        android:layout_marginLeft="@dimen/_75sdp"
+        android:textSize="@dimen/_14sdp"
+        android:layout_marginRight="@dimen/_75sdp"
+        android:paddingEnd="@dimen/_12sdp"
+        android:paddingStart="@dimen/_12sdp"
+        />
+    <ImageView
+        android:layout_width="@dimen/_22sdp"
+        android:layout_height="@dimen/_22sdp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="@dimen/_22sdp"
+        android:layout_below="@id/search_image_logo"
+        android:background="@drawable/magnifier_copy"
+        android:layout_marginEnd="@dimen/_88sdp"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/search_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/search_edit_text_search"
+        android:layout_marginTop="@dimen/_10sdp"
+      android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_5sdp"
+        ></android.support.v7.widget.RecyclerView>
+    <Button
+        android:id="@+id/home_btn_search"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_42sdp"
+        android:background="#6e4839"
+        android:text="عدد المرات التى ذكرت فيها الكلمة: "
+        android:textSize="@dimen/_15sdp"
+        android:textColor="#fff"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:textStyle="bold"/>
+</RelativeLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<ImageView
+    android:id="@+id/row_search_icon_star"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/layer5copy4"
+    android:layout_alignParentEnd="true"
+    android:layout_marginTop="@dimen/_17sdp"
+    android:layout_marginEnd="@dimen/_10sdp"/>
+    <TextView
+        android:id="@+id/row_search_verse_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@+id/row_search_icon_star"
+        android:layout_marginEnd="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:textSize="@dimen/_18sdp"
+        android:text="سوره الفاتحه"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/row_search_verse_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@+id/row_search_verse_name"
+        android:text="سورة:1"
+        android:textSize="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_72sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        />
+    <TextView
+        android:id="@+id/row_search_ayah_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@+id/row_search_verse_number"
+        android:text="ايه:1"
+        android:textSize="@dimen/_16sdp"
+        android:layout_marginEnd="@dimen/_14sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        />
+    <ImageView
+        android:layout_width="@dimen/_17sdp"
+        android:layout_height="@dimen/_17sdp"
+        android:layout_toStartOf="@id/row_search_ayah_number"
+        android:background="@drawable/share"
+        android:layout_marginTop="@dimen/_14sdp"
+        android:layout_marginEnd="@dimen/_16sdp"
+        />
+<View
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_1sdp"
+    android:layout_below="@+id/row_search_verse_name"
+    android:layout_marginTop="@dimen/_6sdp"
+    android:background="#cfcccc"
+    />
+</RelativeLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:title="الصفحه الرئيسيه"
+            android:icon="@drawable/layer5copy4"/>
+        <item
+            android:id="@+id/nav_way_of_search"
+            android:title="طريقه البحث"
+            android:icon="@drawable/layer5copy4"/>
+        <item
+            android:id="@+id/nav_who_are_we"
+            android:title="من نحن؟"
+            android:icon="@drawable/layer5copy4"/>
+        <item
+            android:id="@+id/nav_call_us"
+            android:title="اتصل بنا"
+            android:icon="@drawable/layer5copy4"/>
+        <item
+            android:id="@+id/nav_electronic_version"
+            android:title="النسخه الالكترونيه"
+            android:icon="@drawable/layer5copy4"/>
+
+    </group>
+
+
+
+</menu>

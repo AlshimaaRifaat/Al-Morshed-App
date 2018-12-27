@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/vector_smart_object_copy"
+    tools:context=".fragment.WhoAreWeFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/who_are_we_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_42sdp"
+        android:background="#6e4839">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="من نحن"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textSize="@dimen/_19sdp"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:textColor="#fff"/>
+        </RelativeLayout>
+    </android.support.v7.widget.Toolbar>
+    <ImageView
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_below="@+id/who_are_we_toolbar"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/_17sdp"
+        android:background="@drawable/ellipse3"/>
+    <ImageView
+        android:id="@+id/who_are_we_image_logo"
+        android:layout_width="@dimen/_140sdp"
+        android:layout_height="@dimen/_140sdp"
+        android:background="@drawable/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_55sdp"
+        android:scaleType="fitXY"
+        />
+    <TextView
+        android:id="@+id/who_are_we_text_view_hello"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hello"
+        android:textSize="@dimen/_15sdp"
+        android:layout_marginStart="@dimen/_42sdp"
+        android:layout_marginEnd="@dimen/_14sdp"
+        android:textStyle="bold"
+        android:textColor="#6e4839"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/_14sdp"
+        android:layout_below="@id/home_image_logo"
+        />
+    <TextView
+        android:id="@+id/who_are_we_text_view_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ابحث هنا عن معانى كلمات القرآن"
+        android:textSize="@dimen/_14sdp"
+        android:textColor="#6e4839"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/_55sdp"
+        android:layout_below="@id/who_are_we_text_view_hello"
+        />
+    <ImageView
+        android:id="@+id/way_of_search_icon_whats"
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/whats_icon"
+        android:layout_marginStart="@dimen/_80sdp"
+        android:layout_marginBottom="@dimen/_65sdp"/>
+    <ImageView
+        android:id="@+id/who_are_we_icon_insta"
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/insta_icon"
+        android:layout_marginStart="@dimen/_17sdp"
+        android:layout_marginBottom="@dimen/_65sdp"
+        android:layout_toEndOf="@+id/way_of_search_icon_whats"/>
+    <ImageView
+        android:layout_width="@dimen/_45sdp"
+        android:layout_height="@dimen/_45sdp"
+        android:layout_marginStart="@dimen/_17sdp"
+        android:layout_toEndOf="@+id/who_are_we_icon_insta"
+        android:background="@drawable/fb_icon"
+        android:layout_marginBottom="@dimen/_65sdp"
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>
