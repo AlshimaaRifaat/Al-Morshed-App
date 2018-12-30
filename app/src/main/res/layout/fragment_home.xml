@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.HomeFragment"
-    android:background="#fff"
+    android:background="@drawable/vector_smart_object_copy"
     >
 <android.support.v7.widget.Toolbar
     android:id="@+id/home_toolbar"
@@ -39,8 +39,8 @@
     <!-- TODO: Update blank fragment layout -->
     <ImageView
         android:id="@+id/home_image_logo"
-        android:layout_width="@dimen/_140sdp"
-        android:layout_height="@dimen/_140sdp"
+        android:layout_width="@dimen/_100sdp"
+        android:layout_height="@dimen/_100sdp"
         android:background="@drawable/logo"
        android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_55sdp"
@@ -57,9 +57,68 @@
         android:textStyle="bold"
         android:textColor="#6e4839"
         android:layout_centerInParent="true"
-        android:layout_marginTop="@dimen/_14sdp"
+        android:layout_marginTop="@dimen/_7sdp"
         android:layout_below="@id/home_image_logo"
         />
+
+    <RelativeLayout
+        android:id="@+id/home_relative_sora"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+       android:layout_alignParentEnd="true"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+       android:background="#fff"
+        android:layout_below="@+id/home_text_view_hello">
+
+        <Spinner
+            android:id="@+id/home_spinner_sora"
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:spinnerMode="dialog"
+
+            ></Spinner>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/home_relative_part"
+        android:layout_width="@dimen/_130sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_below="@id/home_text_view_hello"
+        android:layout_centerHorizontal="true"
+        android:background="#fff"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginStart="@dimen/_12sdp">
+
+        <Spinner
+            android:id="@+id/home_spinner_part"
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:spinnerMode="dialog"
+
+            ></Spinner>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/home_relative_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:background="#fff"
+        android:layout_below="@+id/home_relative_sora">
+
+        <Spinner
+            android:id="@+id/home_spinner_all"
+            android:layout_width="@dimen/_130sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:spinnerMode="dialog"
+            ></Spinner>
+    </RelativeLayout>
     <TextView
         android:id="@+id/home_text_view_search"
         android:layout_width="wrap_content"
@@ -68,10 +127,10 @@
         android:textSize="@dimen/_14sdp"
         android:textColor="#6e4839"
         android:layout_centerInParent="true"
-        android:layout_marginTop="@dimen/_25sdp"
+        android:layout_marginTop="@dimen/_130sdp"
         android:layout_below="@id/home_text_view_hello"
         />
-<View
+<!--<View
     android:id="@+id/home_view"
     android:layout_width="match_parent"
     android:layout_height="@dimen/_2sdp"
@@ -80,27 +139,28 @@
     android:layout_centerHorizontal="true"
     android:layout_marginTop="@dimen/_11sdp"
     android:layout_marginStart="@dimen/_220sdp"
-    />
+    />-->
 
     <EditText
         android:id="@+id/home_edit_text_search"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_32sdp"
         android:background="@drawable/edit_text_search"
-        android:layout_below="@id/home_view"
-        android:layout_marginTop="@dimen/_17sdp"
+        android:layout_below="@id/home_text_view_search"
+        android:layout_marginTop="@dimen/_12sdp"
         android:layout_marginLeft="@dimen/_75sdp"
         android:textSize="@dimen/_14sdp"
         android:layout_marginRight="@dimen/_75sdp"
         android:paddingEnd="@dimen/_12sdp"
         android:paddingStart="@dimen/_12sdp"
+        android:layout_marginBottom="@dimen/_22sdp"
         />
 <ImageView
     android:layout_width="@dimen/_22sdp"
     android:layout_height="@dimen/_22sdp"
     android:layout_alignParentRight="true"
     android:layout_marginTop="@dimen/_22sdp"
-    android:layout_below="@id/home_view"
+    android:layout_below="@id/home_text_view_search"
     android:background="@drawable/magnifier_copy"
     android:layout_marginEnd="@dimen/_90sdp"/>
     <Button
