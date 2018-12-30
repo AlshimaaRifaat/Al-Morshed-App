@@ -42,7 +42,7 @@ View view;
         NavigationActivity.toggle.syncState();
 
         NavigationActivity.toggle.setDrawerIndicatorEnabled(false);
-        toolbar.setNavigationIcon(R.drawable.ic_menu_send  );
+        toolbar.setNavigationIcon(R.drawable.nav  );
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
 

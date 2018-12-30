@@ -10,7 +10,7 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/way_of_search_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_42sdp"
+        android:layout_height="@dimen/_35sdp"
         android:background="#6e4839">
 
         <RelativeLayout
@@ -25,17 +25,18 @@
                 android:textSize="@dimen/_19sdp"
                 android:textStyle="bold"
                 android:layout_centerHorizontal="true"
-                android:textColor="#fff"/>
+                android:textColor="#fff"
+                android:layout_centerVertical="true"/>
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
 
-    <ImageView
+<!--    <ImageView
         android:layout_width="@dimen/_35sdp"
         android:layout_height="@dimen/_45sdp"
         android:layout_below="@+id/way_of_search_toolbar"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="@dimen/_17sdp"
-        android:background="@drawable/ellipse3"/>
+        android:background="@drawable/ellipse3"/>-->
     <ImageView
         android:id="@+id/way_of_search_image_logo"
         android:layout_width="@dimen/_110sdp"
