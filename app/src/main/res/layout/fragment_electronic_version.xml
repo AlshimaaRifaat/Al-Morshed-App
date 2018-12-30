@@ -61,8 +61,8 @@
         />
     <ImageView
         android:id="@+id/elec_version_icon_whats"
-        android:layout_width="@dimen/_45sdp"
-        android:layout_height="@dimen/_45sdp"
+        android:layout_width="@dimen/_41sdp"
+        android:layout_height="@dimen/_41sdp"
         android:layout_below="@+id/elec_version_text_view_download"
         android:background="@drawable/whats_icon"
         android:layout_marginStart="@dimen/_80sdp"
@@ -70,16 +70,16 @@
         />
     <ImageView
         android:id="@+id/elec_version_icon_insta"
-        android:layout_width="@dimen/_45sdp"
-        android:layout_height="@dimen/_45sdp"
+        android:layout_width="@dimen/_41sdp"
+        android:layout_height="@dimen/_41sdp"
         android:background="@drawable/insta_icon"
         android:layout_marginStart="@dimen/_17sdp"
         android:layout_below="@id/elec_version_text_view_download"
         android:layout_marginTop="@dimen/_37sdp"
         android:layout_toEndOf="@+id/elec_version_icon_whats"/>
     <ImageView
-        android:layout_width="@dimen/_45sdp"
-        android:layout_height="@dimen/_45sdp"
+        android:layout_width="@dimen/_41sdp"
+        android:layout_height="@dimen/_41sdp"
         android:layout_marginStart="@dimen/_17sdp"
         android:layout_toEndOf="@+id/elec_version_icon_insta"
         android:background="@drawable/fb_icon"

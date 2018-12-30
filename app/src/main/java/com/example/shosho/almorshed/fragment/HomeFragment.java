@@ -1,6 +1,7 @@
 package com.example.shosho.almorshed.fragment;
 
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 
 import com.example.shosho.almorshed.NavigationActivity;
 import com.example.shosho.almorshed.R;
@@ -17,8 +19,10 @@ import com.example.shosho.almorshed.R;
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment {
-
+Typeface customFontMedium,customFontRoman;
 Toolbar toolbar;
+TextView textViewHello;
+TextView textViewSearch;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -37,7 +41,7 @@ View view;
         NavigationActivity.toggle.syncState();
 
         NavigationActivity.toggle.setDrawerIndicatorEnabled(false);
-        toolbar.setNavigationIcon(R.drawable.ic_menu_send  );
+        toolbar.setNavigationIcon(R.drawable.humberg  );
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
 
@@ -50,11 +54,20 @@ View view;
                 }
             }
         });
+        customFontMedium=Typeface.createFromAsset( getContext().getAssets(),"Fonts/SST Arabic Medium.ttf" );
+        textViewHello.setTypeface( customFontMedium );
+
+        customFontRoman=Typeface.createFromAsset( getContext().getAssets(),"Fonts/SST Arabic Roman.ttf" );
+        textViewSearch.setTypeface( customFontRoman );
         return view;
     }
 
     private void init() {
+
         toolbar=view.findViewById( R.id.home_toolbar );
+        textViewHello=view.findViewById( R.id.home_text_view_hello );
+        textViewSearch=view.findViewById( R.id.home_text_view_search );
+
     }
 
 }

@@ -38,8 +38,8 @@
         android:background="@drawable/ellipse3"/>
     <ImageView
         android:id="@+id/way_of_search_image_logo"
-        android:layout_width="@dimen/_140sdp"
-        android:layout_height="@dimen/_140sdp"
+        android:layout_width="@dimen/_110sdp"
+        android:layout_height="@dimen/_110sdp"
         android:background="@drawable/logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_55sdp"
@@ -56,7 +56,7 @@
         android:textStyle="bold"
         android:textColor="#6e4839"
         android:layout_centerInParent="true"
-        android:layout_marginTop="@dimen/_15sdp"
+        android:layout_marginTop="@dimen/_12sdp"
         android:layout_below="@id/way_of_search_image_logo"
         />
     <TextView
@@ -65,9 +65,9 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/way_of_search_text_view_hello"
         android:text="ابحث عن معانى كلمات القرآن"
-        android:layout_marginTop="@dimen/_22sdp"
+        android:layout_marginTop="@dimen/_12sdp"
         android:textColor="#6e4839"
-        android:textSize="@dimen/_19sdp"
+        android:textSize="@dimen/_17sdp"
         android:layout_centerInParent="true"
         />
     <TextView
@@ -77,7 +77,7 @@
         android:layout_below="@+id/way_of_search_line_1"
         android:text="ابحث عن اي كلمه ف القرآن "
         android:textColor="#6e4839"
-        android:textSize="@dimen/_19sdp"
+        android:textSize="@dimen/_17sdp"
         android:layout_centerInParent="true"
         />
     <TextView
@@ -87,7 +87,7 @@
         android:layout_below="@+id/way_of_search_line_2"
         android:text="وكم مره ذكرت وفى أي سوره وآيه"
         android:textColor="#6e4839"
-        android:textSize="@dimen/_19sdp"
+        android:textSize="@dimen/_17sdp"
         android:layout_centerInParent="true"
         />
     <TextView
@@ -97,34 +97,40 @@
         android:layout_below="@+id/way_of_search_line_3"
         android:text="اكتب فقط الاسم فى مربع البحث"
         android:textColor="#6e4839"
-        android:textSize="@dimen/_19sdp"
+        android:textSize="@dimen/_17sdp"
         android:layout_centerInParent="true"
         />
 <ImageView
     android:id="@+id/way_of_search_icon_whats"
-    android:layout_width="@dimen/_45sdp"
-    android:layout_height="@dimen/_45sdp"
-    android:layout_alignParentBottom="true"
+    android:layout_width="@dimen/_41sdp"
+    android:layout_height="@dimen/_41sdp"
+
     android:background="@drawable/whats_icon"
     android:layout_marginStart="@dimen/_80sdp"
-    android:layout_marginBottom="@dimen/_24sdp"/>
+    android:layout_marginBottom="@dimen/_24sdp"
+    android:layout_marginTop="@dimen/_37sdp"
+    android:layout_below="@id/way_of_search_line_4"/>
     <ImageView
         android:id="@+id/way_of_search_icon_insta"
-        android:layout_width="@dimen/_45sdp"
-        android:layout_height="@dimen/_45sdp"
-        android:layout_alignParentBottom="true"
+        android:layout_width="@dimen/_41sdp"
+        android:layout_height="@dimen/_41sdp"
+
         android:background="@drawable/insta_icon"
         android:layout_marginStart="@dimen/_17sdp"
         android:layout_marginBottom="@dimen/_24sdp"
-        android:layout_toEndOf="@+id/way_of_search_icon_whats"/>
+        android:layout_marginTop="@dimen/_37sdp"
+        android:layout_toEndOf="@+id/way_of_search_icon_whats"
+        android:layout_below="@id/way_of_search_line_4"/>
     <ImageView
-        android:layout_width="@dimen/_45sdp"
-        android:layout_height="@dimen/_45sdp"
+        android:layout_width="@dimen/_41sdp"
+        android:layout_height="@dimen/_41sdp"
         android:layout_marginStart="@dimen/_17sdp"
         android:layout_toEndOf="@+id/way_of_search_icon_insta"
         android:background="@drawable/fb_icon"
+        android:layout_below="@+id/way_of_search_line_4"
         android:layout_marginBottom="@dimen/_24sdp"
-        android:layout_alignParentBottom="true"/>
+        android:layout_marginTop="@dimen/_37sdp"
+        />
 
     .
 </RelativeLayout>
