@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 
@@ -22,7 +23,9 @@ import com.example.shosho.almorshed.R;
 public class WayOfSearchFragment extends Fragment {
 Toolbar toolbar;
 Typeface customFontMedium,customFontRoman;
-TextView textViewHello,textViewLine1,textViewLine2,textViewLine3,textViewLine4;
+TextView textViewHello,textViewLine1,textViewLine2,textViewLine3,textViewLine4,textViewPlzShare;
+ImageView iconWhats,iconInsta,iconFacebook;
+
     public WayOfSearchFragment() {
         // Required empty public constructor
     }
@@ -65,6 +68,16 @@ View view;
         textViewLine2.setTypeface(customFontRoman  );
         textViewLine3.setTypeface( customFontRoman );
         textViewLine4.setTypeface( customFontRoman );
+
+        textViewPlzShare.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                iconWhats.setVisibility( View.VISIBLE );
+                iconInsta.setVisibility( View.VISIBLE );
+                iconFacebook.setVisibility( View.VISIBLE );
+
+            }
+        } );
         return view;
     }
 
@@ -77,6 +90,10 @@ View view;
         textViewLine3=view.findViewById( R.id.way_of_search_line_3 );
         textViewLine4=view.findViewById( R.id.way_of_search_line_4 );
 
+        textViewPlzShare=view.findViewById( R.id.way_of_search_plz_share );
+        iconWhats=view.findViewById( R.id.way_of_search_icon_whats );
+        iconInsta=view.findViewById( R.id.way_of_search_icon_insta );
+        iconFacebook=view.findViewById( R.id.way_of_search_icon_face );
     }
 
 }

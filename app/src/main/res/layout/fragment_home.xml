@@ -60,65 +60,51 @@
         android:layout_marginTop="@dimen/_7sdp"
         android:layout_below="@id/home_image_logo"
         />
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_70sdp"
 
-    <RelativeLayout
-        android:id="@+id/home_relative_sora"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-       android:layout_alignParentEnd="true"
-        android:layout_marginTop="@dimen/_25sdp"
-        android:layout_marginEnd="@dimen/_12sdp"
-       android:background="#fff"
-        android:layout_below="@+id/home_text_view_hello">
-
-        <Spinner
-            android:id="@+id/home_spinner_sora"
-            android:layout_width="@dimen/_130sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:spinnerMode="dialog"
-
-            ></Spinner>
-    </RelativeLayout>
-
+    android:background="#6e4839"
+    android:layout_below="@id/home_text_view_hello"
+    android:layout_marginTop="@dimen/_35sdp">
     <RelativeLayout
         android:id="@+id/home_relative_part"
-        android:layout_width="@dimen/_130sdp"
-        android:layout_height="@dimen/_40sdp"
-        android:layout_below="@id/home_text_view_hello"
-        android:layout_centerHorizontal="true"
+        android:layout_width="@dimen/_135sdp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/_5sdp"
         android:background="#fff"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="@dimen/_25sdp"
-        android:layout_marginStart="@dimen/_12sdp">
+        android:layout_centerVertical="true"
+
+        >
 
         <Spinner
             android:id="@+id/home_spinner_part"
-            android:layout_width="@dimen/_130sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:spinnerMode="dialog"
-
+            android:layout_width="@dimen/_135sdp"
+            android:layout_height="@dimen/_37sdp"
             ></Spinner>
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/home_relative_all"
-        android:layout_width="wrap_content"
+        android:id="@+id/home_relative_sora"
+        android:layout_width="@dimen/_135sdp"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_gravity="end"
         android:background="#fff"
-        android:layout_below="@+id/home_relative_sora">
-
+        android:layout_centerVertical="true"
+       android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/_5sdp"
+        >
         <Spinner
-            android:id="@+id/home_spinner_all"
-            android:layout_width="@dimen/_130sdp"
-            android:layout_height="@dimen/_40sdp"
-            android:spinnerMode="dialog"
+            android:id="@+id/home_spinner_sora"
+            android:layout_width="@dimen/_135sdp"
+            android:layout_height="@dimen/_37sdp"
             ></Spinner>
     </RelativeLayout>
+
+    </RelativeLayout>
+
+
+
     <TextView
         android:id="@+id/home_text_view_search"
         android:layout_width="wrap_content"
@@ -151,7 +137,7 @@
         android:layout_marginLeft="@dimen/_75sdp"
         android:textSize="@dimen/_14sdp"
         android:layout_marginRight="@dimen/_75sdp"
-        android:paddingEnd="@dimen/_12sdp"
+        android:paddingEnd="@dimen/_25sdp"
         android:paddingStart="@dimen/_12sdp"
         android:layout_marginBottom="@dimen/_22sdp"
         />
@@ -159,7 +145,7 @@
     android:layout_width="@dimen/_22sdp"
     android:layout_height="@dimen/_22sdp"
     android:layout_alignParentRight="true"
-    android:layout_marginTop="@dimen/_22sdp"
+    android:layout_marginTop="@dimen/_19sdp"
     android:layout_below="@id/home_text_view_search"
     android:background="@drawable/magnifier_copy"
     android:layout_marginEnd="@dimen/_90sdp"/>

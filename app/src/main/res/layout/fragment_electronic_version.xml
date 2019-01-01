@@ -60,14 +60,27 @@
         android:layout_marginTop="@dimen/_62sdp"
         android:layout_below="@id/elec_version_image_logo"
         />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/elec_version_btn_plz_share"
+        android:layout_below="@id/elec_version_text_view_download"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:text="للرجاء المشاركه"
+        android:textSize="@dimen/_17sdp"
+        android:textColor="#6e4839"
+        android:textStyle="bold"/>
     <ImageView
         android:id="@+id/elec_version_icon_whats"
         android:layout_width="@dimen/_41sdp"
         android:layout_height="@dimen/_41sdp"
-        android:layout_below="@+id/elec_version_text_view_download"
+        android:layout_below="@+id/elec_version_btn_plz_share"
         android:background="@drawable/whats_icon"
-        android:layout_marginStart="@dimen/_80sdp"
-        android:layout_marginTop="@dimen/_37sdp"
+        android:layout_marginStart="@dimen/_70sdp"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:visibility="gone"
         />
     <ImageView
         android:id="@+id/elec_version_icon_insta"
@@ -75,17 +88,20 @@
         android:layout_height="@dimen/_41sdp"
         android:background="@drawable/insta_icon"
         android:layout_marginStart="@dimen/_17sdp"
-        android:layout_below="@id/elec_version_text_view_download"
-        android:layout_marginTop="@dimen/_37sdp"
-        android:layout_toEndOf="@+id/elec_version_icon_whats"/>
+        android:layout_below="@id/elec_version_btn_plz_share"
+        android:layout_toEndOf="@+id/elec_version_icon_whats"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:visibility="gone"/>
     <ImageView
+        android:id="@+id/elec_version_icon_face"
         android:layout_width="@dimen/_41sdp"
         android:layout_height="@dimen/_41sdp"
         android:layout_marginStart="@dimen/_17sdp"
         android:layout_toEndOf="@+id/elec_version_icon_insta"
         android:background="@drawable/fb_icon"
-       android:layout_below="@id/elec_version_text_view_download"
-        android:layout_marginTop="@dimen/_37sdp"
+       android:layout_below="@id/elec_version_btn_plz_share"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:visibility="gone"
         />
     <Button
         android:id="@+id/elec_version_btn_download"

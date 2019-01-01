@@ -3,6 +3,7 @@ package com.example.shosho.almorshed.fragment;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -11,23 +12,41 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.shosho.almorshed.NavigationActivity;
 import com.example.shosho.almorshed.R;
+import com.example.shosho.almorshed.SplashActivity;
+import com.example.shosho.almorshed.database.DbHelper;
+import com.example.shosho.almorshed.model.Quran;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class HomeFragment extends Fragment {
-Typeface customFontMedium,customFontRoman;
-Toolbar toolbar;
-TextView textViewHello;
-TextView textViewSearch;
+    Typeface customFontMedium,customFontRoman;
+    Toolbar toolbar;
+    TextView textViewHello;
+    TextView textViewSearch;
+
     public HomeFragment() {
         // Required empty public constructor
     }
 
-View view;
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
+        SplashActivity.db=new DbHelper(getContext());
+        ArrayList<Quran> qResul=SplashActivity.db.getData("ٱلۡعَٰلَمِينَ");
+        Toast.makeText(getContext(), qResul.get(0).getMeaning(), Toast.LENGTH_SHORT).show();
+
+    }
+
+    View view;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

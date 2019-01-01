@@ -63,11 +63,12 @@
         android:id="@+id/who_are_we_text_view_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ابحث هنا عن معانى كلمات القرآن"
+        android:text="للتواصل معنا"
         android:textSize="@dimen/_14sdp"
         android:textColor="#6e4839"
         android:layout_centerInParent="true"
         android:layout_marginTop="@dimen/_55sdp"
+        android:textStyle="bold"
         android:layout_below="@id/who_are_we_text_view_hello"
         />
     <ImageView

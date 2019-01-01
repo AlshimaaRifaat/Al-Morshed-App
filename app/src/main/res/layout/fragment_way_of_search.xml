@@ -101,36 +101,50 @@
         android:textSize="@dimen/_17sdp"
         android:layout_centerInParent="true"
         />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/way_of_search_plz_share"
+        android:layout_below="@id/way_of_search_line_4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:text="للرجاء المشاركه"
+        android:textSize="@dimen/_17sdp"
+        android:textColor="#6e4839"
+        android:textStyle="bold"/>
 <ImageView
     android:id="@+id/way_of_search_icon_whats"
     android:layout_width="@dimen/_41sdp"
     android:layout_height="@dimen/_41sdp"
-
     android:background="@drawable/whats_icon"
-    android:layout_marginStart="@dimen/_80sdp"
+    android:layout_marginStart="@dimen/_70sdp"
     android:layout_marginBottom="@dimen/_24sdp"
-    android:layout_marginTop="@dimen/_37sdp"
-    android:layout_below="@id/way_of_search_line_4"/>
+    android:layout_below="@id/way_of_search_plz_share"
+    android:visibility="gone"/>
     <ImageView
         android:id="@+id/way_of_search_icon_insta"
         android:layout_width="@dimen/_41sdp"
         android:layout_height="@dimen/_41sdp"
-
         android:background="@drawable/insta_icon"
         android:layout_marginStart="@dimen/_17sdp"
         android:layout_marginBottom="@dimen/_24sdp"
-        android:layout_marginTop="@dimen/_37sdp"
+
         android:layout_toEndOf="@+id/way_of_search_icon_whats"
-        android:layout_below="@id/way_of_search_line_4"/>
+        android:layout_below="@id/way_of_search_plz_share"
+        android:visibility="gone"
+        />
     <ImageView
+        android:id="@+id/way_of_search_icon_face"
         android:layout_width="@dimen/_41sdp"
         android:layout_height="@dimen/_41sdp"
         android:layout_marginStart="@dimen/_17sdp"
         android:layout_toEndOf="@+id/way_of_search_icon_insta"
         android:background="@drawable/fb_icon"
-        android:layout_below="@+id/way_of_search_line_4"
+        android:layout_below="@+id/way_of_search_plz_share"
         android:layout_marginBottom="@dimen/_24sdp"
-        android:layout_marginTop="@dimen/_37sdp"
+
+        android:visibility="gone"
         />
 
     .
