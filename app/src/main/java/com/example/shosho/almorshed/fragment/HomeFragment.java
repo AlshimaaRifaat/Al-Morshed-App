@@ -12,11 +12,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.Toolbar;
+import android.widget.AdapterView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.shosho.almorshed.NavigationActivity;
 import com.example.shosho.almorshed.R;
+import com.example.shosho.almorshed.adapter.SouretSpinnerAdapter;
 import com.example.shosho.almorshed.database.DatabaseHelper;
 
 import java.io.IOException;
@@ -31,6 +34,15 @@ public class HomeFragment extends Fragment {
     TextView textViewSearch;
 
     Cursor c = null;
+
+
+    Spinner spinner;
+    String[] spinnerValue = {
+            "PHP",
+            "ANDROID",
+            "WEB-DESIGN",
+            "PHOTOSHOP"
+    };
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -100,6 +112,40 @@ public class HomeFragment extends Fragment {
                 }
             }
         });
+
+
+        SouretSpinnerAdapter souretSpinnerAdapter = new SouretSpinnerAdapter(getContext(), android.R.layout.simple_list_item_1);
+        souretSpinnerAdapter.addAll(spinnerValue);
+        souretSpinnerAdapter.add("بحث بالسورة");
+        spinner.setAdapter(souretSpinnerAdapter);
+        spinner.setSelection(souretSpinnerAdapter.getCount());
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                // TODO Auto-generated method stub
+
+                if(spinner.getSelectedItem() == "بحث بالسورة")
+                {
+
+                    //Do nothing.
+                }
+                else{
+
+                    //Toast.makeText(getContext(), spinner.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // TODO Auto-generated method stub
+
+            }
+        });
+
         return view;
     }
 
@@ -108,6 +154,7 @@ public class HomeFragment extends Fragment {
         toolbar=view.findViewById( R.id.home_toolbar );
         textViewHello=view.findViewById( R.id.home_text_view_hello );
         textViewSearch=view.findViewById( R.id.home_text_view_search );
+        spinner =(Spinner)view.findViewById(R.id.home_spinner_sora);
 
     }
 
