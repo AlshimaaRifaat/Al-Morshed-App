@@ -90,10 +90,11 @@ public class HomeFragment extends Fragment {
                 if (c.moveToFirst()) {
                     do {
                         Toast.makeText(getContext(),
-                                "_id: " + c.getString(0) + "\n" +
-                                        "DATE: " + c.getString(1) + "\n" +
-                                        "TIME: " + c.getString(2) + "\n" +
-                                        "HEIGHT:  " + c.getString(3),
+                                "رقم الجزء: " + c.getString(0) + "\n" +
+                                        "اسم السورة: " + c.getString(1) + "\n" +
+                                        "معنى الايه:  " + c.getString(2) + "\n" +
+                                        "الكلمه من غير تشكيل :  " + c.getString(3)+ "\n"+
+                                        "الكلمه بالتشكيل :  " + c.getString(4)+ "\n",
                                 Toast.LENGTH_LONG).show();
                     } while (c.moveToNext());
                 }
