@@ -1,9 +1,10 @@
 package com.example.shosho.almorshed.fragment;
 
 
+import android.database.Cursor;
+import android.database.SQLException;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -16,11 +17,9 @@ import android.widget.Toast;
 
 import com.example.shosho.almorshed.NavigationActivity;
 import com.example.shosho.almorshed.R;
-import com.example.shosho.almorshed.SplashActivity;
-import com.example.shosho.almorshed.database.DbHelper;
-import com.example.shosho.almorshed.model.Quran;
+import com.example.shosho.almorshed.database.DatabaseHelper;
 
-import java.util.ArrayList;
+import java.io.IOException;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,20 +30,12 @@ public class HomeFragment extends Fragment {
     TextView textViewHello;
     TextView textViewSearch;
 
+    Cursor c = null;
     public HomeFragment() {
         // Required empty public constructor
     }
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
-
-        SplashActivity.db=new DbHelper(getContext());
-        ArrayList<Quran> qResul=SplashActivity.db.getData("ٱلۡعَٰلَمِينَ");
-        Toast.makeText(getContext(), qResul.get(0).getMeaning(), Toast.LENGTH_SHORT).show();
-
-    }
 
     View view;
     @Override
@@ -78,6 +69,36 @@ public class HomeFragment extends Fragment {
 
         customFontRoman=Typeface.createFromAsset( getContext().getAssets(),"Fonts/SST Arabic Roman.ttf" );
         textViewSearch.setTypeface( customFontRoman );
+
+
+        textViewSearch.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseHelper myDbHelper = new DatabaseHelper(getContext());
+                try {
+                    myDbHelper.createDataBase();
+                } catch (IOException ioe) {
+                    throw new Error("Unable to create database");
+                }
+                try {
+                    myDbHelper.openDataBase();
+                } catch (SQLException sqle) {
+                    throw sqle;
+                }
+                Toast.makeText(getContext(), "Successfully Imported", Toast.LENGTH_SHORT).show();
+                c = myDbHelper.query("part15", null, null, null, null, null, null);
+                if (c.moveToFirst()) {
+                    do {
+                        Toast.makeText(getContext(),
+                                "_id: " + c.getString(0) + "\n" +
+                                        "DATE: " + c.getString(1) + "\n" +
+                                        "TIME: " + c.getString(2) + "\n" +
+                                        "HEIGHT:  " + c.getString(3),
+                                Toast.LENGTH_LONG).show();
+                    } while (c.moveToNext());
+                }
+            }
+        });
         return view;
     }
 
