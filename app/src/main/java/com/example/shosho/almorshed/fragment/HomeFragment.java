@@ -13,16 +13,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.Toolbar;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.shosho.almorshed.NavigationActivity;
 import com.example.shosho.almorshed.R;
+import com.example.shosho.almorshed.SplashActivity;
+import com.example.shosho.almorshed.adapter.PartSpinnerAdapter;
 import com.example.shosho.almorshed.adapter.SouretSpinnerAdapter;
 import com.example.shosho.almorshed.database.DatabaseHelper;
+import com.example.shosho.almorshed.model.Quran;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -36,13 +42,11 @@ public class HomeFragment extends Fragment {
     Cursor c = null;
 
 
-    Spinner spinner;
-    String[] spinnerValue = {
-            "PHP",
-            "ANDROID",
-            "WEB-DESIGN",
-            "PHOTOSHOP"
-    };
+    Spinner spinnerSourt,spinnerPart;
+   ArrayList<String> spinnerValueSourt=new ArrayList<>(  );
+
+   ArrayList<String> spinnerValuePart=new ArrayList<>(  );
+
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -56,6 +60,7 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         view= inflater.inflate( R.layout.fragment_home, container, false );
         init();
+
         NavigationActivity.toggle = new ActionBarDrawerToggle(
                 getActivity(), NavigationActivity.drawer, toolbar,R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
@@ -86,54 +91,33 @@ public class HomeFragment extends Fragment {
         textViewSearch.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatabaseHelper myDbHelper = new DatabaseHelper(getContext());
-                try {
-                    myDbHelper.createDataBase();
-                } catch (IOException ioe) {
-                    throw new Error("Unable to create database");
-                }
-                try {
-                    myDbHelper.openDataBase();
-                } catch (SQLException sqle) {
-                    throw sqle;
-                }
-                Toast.makeText(getContext(), "Successfully Imported", Toast.LENGTH_SHORT).show();
-                c = myDbHelper.query("part15", null, null, null, null, null, null);
-                if (c.moveToFirst()) {
-                    do {
-                        Toast.makeText(getContext(),
-                                "رقم الجزء: " + c.getString(0) + "\n" +
-                                        "اسم السورة: " + c.getString(1) + "\n" +
-                                        "معنى الايه:  " + c.getString(2) + "\n" +
-                                        "الكلمه من غير تشكيل :  " + c.getString(3)+ "\n"+
-                                        "الكلمه بالتشكيل :  " + c.getString(4)+ "\n",
-                                Toast.LENGTH_LONG).show();
-                    } while (c.moveToNext());
-                }
+                ArrayList<Quran> quranArrayList=SplashActivity.databaseHelper.getData( "رب" );
+                Toast.makeText(getContext(), quranArrayList.get(0).getWord1(), Toast.LENGTH_SHORT).show();
             }
         });
 
 
         SouretSpinnerAdapter souretSpinnerAdapter = new SouretSpinnerAdapter(getContext(), android.R.layout.simple_list_item_1);
-        souretSpinnerAdapter.addAll(spinnerValue);
+        spinnerValueSourt= SplashActivity.databaseHelper.getSourtList();
+       souretSpinnerAdapter.addAll(spinnerValueSourt);
         souretSpinnerAdapter.add("بحث بالسورة");
-        spinner.setAdapter(souretSpinnerAdapter);
-        spinner.setSelection(souretSpinnerAdapter.getCount());
+        spinnerSourt.setAdapter(souretSpinnerAdapter);
+        spinnerSourt.setSelection(souretSpinnerAdapter.getCount());
 
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        spinnerSourt.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
                 // TODO Auto-generated method stub
 
-                if(spinner.getSelectedItem() == "بحث بالسورة")
+                if(spinnerSourt.getSelectedItem() == "بحث بالسورة")
                 {
 
                     //Do nothing.
                 }
                 else{
-
+                   // databaseHelper.getData( "ٱلۡعَٰلَمِينَ" );
                     //Toast.makeText(getContext(), spinner.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
 
                 }
@@ -146,6 +130,40 @@ public class HomeFragment extends Fragment {
             }
         });
 
+
+
+        PartSpinnerAdapter partSpinnerAdapter = new PartSpinnerAdapter(getContext(), android.R.layout.simple_list_item_1);
+        spinnerValuePart= SplashActivity.databaseHelper.getPartList();
+        partSpinnerAdapter.addAll(spinnerValuePart);
+        partSpinnerAdapter.add("بحث بالجزء");
+        spinnerPart.setAdapter(partSpinnerAdapter);
+        spinnerPart.setSelection(partSpinnerAdapter.getCount());
+
+        spinnerPart.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int position, long id) {
+                // TODO Auto-generated method stub
+
+                if(spinnerPart.getSelectedItem() == "بحث بالجزء")
+                {
+
+                    //Do nothing.
+                }
+                else{
+                    // databaseHelper.getData( "ٱلۡعَٰلَمِينَ" );
+                    //Toast.makeText(getContext(), spinner.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // TODO Auto-generated method stub
+
+            }
+        });
         return view;
     }
 
@@ -154,7 +172,9 @@ public class HomeFragment extends Fragment {
         toolbar=view.findViewById( R.id.home_toolbar );
         textViewHello=view.findViewById( R.id.home_text_view_hello );
         textViewSearch=view.findViewById( R.id.home_text_view_search );
-        spinner =(Spinner)view.findViewById(R.id.home_spinner_sora);
+        spinnerSourt =(Spinner)view.findViewById(R.id.home_spinner_sora);
+        spinnerPart=view.findViewById( R.id.home_spinner_part );
+
 
     }
 

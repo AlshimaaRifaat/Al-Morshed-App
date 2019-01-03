@@ -8,10 +8,13 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.shosho.almorshed.model.Quran;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 
 
 public class DatabaseHelper extends SQLiteOpenHelper {
@@ -101,6 +104,53 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor query(String table, String[] columns, String selection, String[] selectionArgs, String groupBy, String having, String orderBy) {
         return myDataBase.query("part15", null, null, null, null, null, null);
+    }
+
+
+    public ArrayList<String> getSourtList()
+    {
+        String []selectionArgs={""};
+        Cursor cursor=myDataBase.rawQuery( "select distinct sourt from part15 where sourt<>?",selectionArgs );
+        ArrayList<String> sourtArrayList=new ArrayList<>(  );
+        if (cursor.getCount()>0)
+        {
+            while (cursor.moveToNext())
+            {
+                sourtArrayList.add( cursor.getString( 0 ) );
+            }
+        }
+        return sourtArrayList;
+    }
+
+    public ArrayList<String> getPartList()
+    {
+        String []selectionArgs={""};
+        Cursor cursor=myDataBase.rawQuery( "select distinct part from part15 where part<>?",selectionArgs );
+        ArrayList<String> partArrayList=new ArrayList<>(  );
+        if (cursor.getCount()>0)
+        {
+            while (cursor.moveToNext())
+            {
+                partArrayList.add( cursor.getString( 0 ) );
+            }
+        }
+        return partArrayList;
+    }
+    public ArrayList<Quran> getData(String word){
+
+        String []selectionArgs={word,word};
+        Cursor cursor=myDataBase.rawQuery( "select *from part15 where word1=? or word2=?",selectionArgs );
+        ArrayList<Quran> quranArrayList=new ArrayList<>(  );
+        if(cursor.getCount()>0)
+        {
+            while (cursor.moveToNext())
+            {
+                Quran quran=new Quran( cursor.getString( 4 ),cursor.getString( 3 ),cursor.getString( 2 )
+                        ,cursor.getString( 1 ),cursor.getString( 0 ));
+                quranArrayList.add( quran );
+            }
+        }
+        return quranArrayList;
     }
 
 

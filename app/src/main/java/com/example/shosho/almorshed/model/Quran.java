@@ -57,4 +57,9 @@ public class Quran {
     public void setPart(String part) {
         this.part = part;
     }
+
+    @Override
+    public String toString() {
+        return souret;
+    }
 }
