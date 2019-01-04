@@ -8,12 +8,16 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.Toolbar;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,9 +26,11 @@ import com.example.shosho.almorshed.NavigationActivity;
 import com.example.shosho.almorshed.R;
 import com.example.shosho.almorshed.SplashActivity;
 import com.example.shosho.almorshed.adapter.PartSpinnerAdapter;
+import com.example.shosho.almorshed.adapter.SearchAdapter;
 import com.example.shosho.almorshed.adapter.SouretSpinnerAdapter;
 import com.example.shosho.almorshed.database.DatabaseHelper;
 import com.example.shosho.almorshed.model.Quran;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -43,10 +49,14 @@ public class HomeFragment extends Fragment {
 
 
     Spinner spinnerSourt,spinnerPart;
-   ArrayList<String> spinnerValueSourt=new ArrayList<>(  );
+    ArrayList<String> spinnerValueSourt=new ArrayList<>(  );
 
-   ArrayList<String> spinnerValuePart=new ArrayList<>(  );
+    ArrayList<String> spinnerValuePart=new ArrayList<>(  );
 
+    EditText editTextSearch;
+    ImageView imageView;
+    RecyclerView recyclerView;
+    SearchAdapter searchAdapter;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -88,18 +98,18 @@ public class HomeFragment extends Fragment {
         textViewSearch.setTypeface( customFontRoman );
 
 
-        textViewSearch.setOnClickListener( new View.OnClickListener() {
+       /* textViewSearch.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ArrayList<Quran> quranArrayList=SplashActivity.databaseHelper.getData( "رب" );
-                Toast.makeText(getContext(), quranArrayList.get(0).getWord1(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), quranArrayList.get(0).getMeaning(), Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
 
 
         SouretSpinnerAdapter souretSpinnerAdapter = new SouretSpinnerAdapter(getContext(), android.R.layout.simple_list_item_1);
         spinnerValueSourt= SplashActivity.databaseHelper.getSourtList();
-       souretSpinnerAdapter.addAll(spinnerValueSourt);
+        souretSpinnerAdapter.addAll(spinnerValueSourt);
         souretSpinnerAdapter.add("بحث بالسورة");
         spinnerSourt.setAdapter(souretSpinnerAdapter);
         spinnerSourt.setSelection(souretSpinnerAdapter.getCount());
@@ -117,8 +127,10 @@ public class HomeFragment extends Fragment {
                     //Do nothing.
                 }
                 else{
-                   // databaseHelper.getData( "ٱلۡعَٰلَمِينَ" );
+                    //ArrayList<Quran> quranArrayList=SplashActivity.databaseHelper.getData( spinnerSourt.getSelectedItem().toString() );
+                    // databaseHelper.getData( "ٱلۡعَٰلَمِينَ" );
                     //Toast.makeText(getContext(), spinner.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
+
 
                 }
             }
@@ -130,7 +142,9 @@ public class HomeFragment extends Fragment {
             }
         });
 
-
+        /*ArrayList<Quran> autoCompleteList=SplashActivity.databaseHelper.
+                getAutoCompleteSearchableResult( editTextSearch.getText().toString());
+        Toast.makeText( getContext(), autoCompleteList.get( 0 ).getWord1(), Toast.LENGTH_SHORT ).show();*/
 
         PartSpinnerAdapter partSpinnerAdapter = new PartSpinnerAdapter(getContext(), android.R.layout.simple_list_item_1);
         spinnerValuePart= SplashActivity.databaseHelper.getPartList();
@@ -152,6 +166,7 @@ public class HomeFragment extends Fragment {
                     //Do nothing.
                 }
                 else{
+                    //  ArrayList<Quran> quranArrayList=SplashActivity.databaseHelper.getData( spinnerPart.getSelectedItem().toString() );
                     // databaseHelper.getData( "ٱلۡعَٰلَمِينَ" );
                     //Toast.makeText(getContext(), spinner.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
 
@@ -164,6 +179,29 @@ public class HomeFragment extends Fragment {
 
             }
         });
+
+        imageView.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(editTextSearch.getText().toString().equals( "" ))
+                    Toast.makeText( getContext(), "من فضلك ادخل كلمة البحث", Toast.LENGTH_SHORT ).show();
+                else {
+                    ArrayList<Quran> quranArrayList;
+                    quranArrayList = SplashActivity.databaseHelper.getData( spinnerSourt.getSelectedItem().toString(), spinnerPart.getSelectedItem().toString()
+                            , editTextSearch.getText().toString() );
+
+                    if (quranArrayList.size() == 0)
+                        Toast.makeText( getContext(), "لا توجد نتائج لهذا البحث", Toast.LENGTH_SHORT ).show();
+                    searchAdapter = new SearchAdapter( getContext(), quranArrayList );
+                    recyclerView.setLayoutManager( new LinearLayoutManager( getContext() ) );
+                    recyclerView.setAdapter( searchAdapter );
+                }
+
+
+
+
+            }
+        } );
         return view;
     }
 
@@ -174,6 +212,9 @@ public class HomeFragment extends Fragment {
         textViewSearch=view.findViewById( R.id.home_text_view_search );
         spinnerSourt =(Spinner)view.findViewById(R.id.home_spinner_sora);
         spinnerPart=view.findViewById( R.id.home_spinner_part );
+        editTextSearch=view.findViewById( R.id.home_edit_text_search );
+        imageView=view.findViewById( R.id.home_icon_search );
+        recyclerView=view.findViewById( R.id.home_recyler );
 
 
     }

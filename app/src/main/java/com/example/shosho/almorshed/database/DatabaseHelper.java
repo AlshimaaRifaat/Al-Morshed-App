@@ -136,10 +136,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return partArrayList;
     }
-    public ArrayList<Quran> getData(String word){
+    public ArrayList<Quran> getData(String sourt,String part,String word){
 
-        String []selectionArgs={word,word};
-        Cursor cursor=myDataBase.rawQuery( "select *from part15 where word1=? or word2=?",selectionArgs );
+
+        if(sourt.equals( "الكل" )||sourt.equals( "بحث بالسورة" ))
+            sourt="%";
+
+
+        if(part.equals( "الكل" ) || part.equals( "بحث بالجزء" ))
+            part="%";
+
+        String []selectionArgs={sourt,part,word+'%',word+'%'};
+        Cursor cursor;
+        cursor=myDataBase.rawQuery( "select * from part15 where sourt like ? and part like ? and (word1 like ? or word2 like ?) ",selectionArgs );
+
         ArrayList<Quran> quranArrayList=new ArrayList<>(  );
         if(cursor.getCount()>0)
         {
@@ -156,6 +166,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 }
 
+ /*
+public ArrayList<Quran> getAutoCompleteSearchableResult(String word)
+{
+    String[]selectionArgs={"word"};
+    Cursor cursor=myDataBase.rawQuery( "select word1,meaning,part,sourt from part15 where word2 like ?+'%' ",selectionArgs );
+    ArrayList<Quran> autoCompleteList=new ArrayList<>(  );
+    if (cursor.getCount()>0)
+    {
+        while (cursor.moveToNext())
+        {
+            Quran Quran=new Quran( cursor.getString( 4 ),cursor.getString( 2 )
+                    ,cursor.getString( 1 ),cursor.getString( 0 ));
+        }
+    }
+    return autoCompleteList;
+}*/
 
    /*SQLiteDatabase sqLiteDatabase;
     Context context;

@@ -13,14 +13,16 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class SplashActivity extends AppCompatActivity {
-public static DatabaseHelper databaseHelper;
-
+    public static DatabaseHelper databaseHelper;
+    boolean database,splashtime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_splash );
+        splashtime=false;
+        database=false;
 
-        Thread timer=new Thread(){
+        final Thread timer=new Thread(){
             @Override
             public void run() {
                 super.run();
@@ -31,25 +33,46 @@ public static DatabaseHelper databaseHelper;
                     e.printStackTrace();
                 }
                 finally {
-                    Intent intent=new Intent(SplashActivity.this,NavigationActivity.class);
-                    startActivity(intent);
-                    finish();
+                    splashtime=true;
+
+                    if(splashtime==true&&database==true) {
+                        Intent intent = new Intent( SplashActivity.this, NavigationActivity.class );
+                        startActivity( intent );
+                        finish();
+                    }
                 }
             }
         };
         timer.start();
-         databaseHelper = new DatabaseHelper(this);
-        try {
-            databaseHelper.createDataBase();
-        } catch (IOException ioe) {
-            throw new Error("Unable to create database");
-        }
-        try {
-            databaseHelper.openDataBase();
-        } catch (SQLException sqle) {
-            throw sqle;
-        }
 
-        }
+        final Thread timer2=new Thread(){
+            @Override
+            public void run() {
+                super.run();
+
+                databaseHelper = new DatabaseHelper(SplashActivity.this);
+                try {
+                    databaseHelper.createDataBase();
+                } catch (IOException ioe) {
+                    throw new Error("Unable to create database");
+                }
+                try {
+                    databaseHelper.openDataBase();
+                } catch (SQLException sqle) {
+                    throw sqle;
+                }
+                database=true;
+                if(database==true&&splashtime==true) {
+                    Intent intent = new Intent( SplashActivity.this, NavigationActivity.class );
+                    startActivity( intent );
+                    finish();
+                }
+            }
+
+
+        };
+        timer2.start();
+
+    }
 
 }

@@ -18,6 +18,13 @@ public class Quran {
         this.part = part;
     }
 
+    public Quran(String word1, String meaning, String souret, String part) {
+        this.word1 = word1;
+        this.meaning = meaning;
+        this.souret = souret;
+        this.part = part;
+    }
+
     public String getWord1() {
         return word1;
     }
