@@ -9,6 +9,6 @@
         />
     <stroke
         android:width="@dimen/_2sdp"
-        android:color="#70dc9e"
+        android:color="#6e4839"
         />
 </shape>

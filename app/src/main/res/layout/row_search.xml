@@ -23,27 +23,43 @@
             android:textStyle="bold" />
 
     </RelativeLayout>
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_horizontal"
         android:paddingBottom="@dimen/_12sdp"
         android:paddingTop="@dimen/_8sdp">
-        <TextView
-            android:id="@+id/row_search_part"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="الجزء الاول"
-            android:textColor="#000"/>
-        <TextView
-            android:id="@+id/row_search_sourt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="سوره الفاتحه "
-            android:textColor="#ea0c0c"
+        <ImageView
+            android:id="@+id/row_search_icon_share"
+            android:layout_width="@dimen/_17sdp"
+            android:layout_height="@dimen/_17sdp"
+            android:background="@drawable/share"
+            android:layout_marginLeft="@dimen/_20sdp"
+
             />
-    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            >
+
+            <TextView
+                android:id="@+id/row_search_part"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="الجزء الاول"
+                android:textColor="#000"/>
+            <TextView
+                android:id="@+id/row_search_sourt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="سوره الفاتحه "
+                android:textColor="#ea0c0c"
+                />
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
     <!--<TextView
         android:id="@+id/row_search_ayah_number"
@@ -55,13 +71,8 @@
         android:layout_marginEnd="@dimen/_14sdp"
         android:layout_marginTop="@dimen/_10sdp"
         />-->
-    <!-- <ImageView
-         android:layout_width="@dimen/_17sdp"
-         android:layout_height="@dimen/_17sdp"
-         android:background="@drawable/share"
-         android:layout_marginTop="@dimen/_14sdp"
-         android:layout_marginEnd="@dimen/_16sdp"
-         />-->
+
+
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/_1sdp"

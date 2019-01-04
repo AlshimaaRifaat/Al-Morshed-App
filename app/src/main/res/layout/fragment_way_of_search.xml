@@ -109,6 +109,7 @@
         android:layout_below="@id/way_of_search_line_4"
         android:layout_centerHorizontal="true"
         android:layout_marginEnd="@dimen/_12sdp"
+
         android:text="للرجاء المشاركه"
         android:textSize="@dimen/_17sdp"
         android:textColor="#6e4839"

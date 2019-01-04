@@ -141,7 +141,7 @@
             android:layout_marginLeft="@dimen/_75sdp"
             android:textSize="@dimen/_14sdp"
             android:layout_marginRight="@dimen/_75sdp"
-            android:paddingRight="@dimen/_55sdp"
+            android:paddingRight="@dimen/_45sdp"
             android:paddingLeft="@dimen/_12sdp"
             android:layout_marginBottom="@dimen/_22sdp"
             />
