@@ -1,6 +1,7 @@
 package com.example.shosho.almorshed.fragment;
 
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.shosho.almorshed.NavigationActivity;
@@ -22,6 +25,8 @@ public class WhoAreWeFragment extends Fragment {
 Toolbar toolbar;
 Typeface customFontMedium,customFontRoman;
 TextView textViewHello,textViewSearch;
+//ImageView iconWhats,iconInstgram,iconFacebook;
+    Button contactUs;
     public WhoAreWeFragment() {
         // Required empty public constructor
     }
@@ -57,15 +62,40 @@ View view;
         customFontMedium=Typeface.createFromAsset( getContext().getAssets(),"Fonts/SST Arabic Medium.ttf" );
         textViewHello.setTypeface( customFontMedium );
 
-        customFontRoman=Typeface.createFromAsset( getContext().getAssets(),"Fonts/SST Arabic Roman.ttf" );
-        textViewSearch.setTypeface( customFontRoman );
+       /* customFontRoman=Typeface.createFromAsset( getContext().getAssets(),"Fonts/SST Arabic Roman.ttf" );
+        textViewSearch.setTypeface( customFontRoman );*/
+
+       /* iconFacebook.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String message = "https://www.facebook.com/";
+                Intent share = new Intent(Intent.ACTION_SEND);
+                share.setType("text/plain");
+                share.putExtra(Intent.EXTRA_TEXT, message);
+                getActivity().startActivity(Intent.createChooser(share, "نشر "+ " الي "));
+            }
+        } );*/
+        customFontMedium=Typeface.createFromAsset( getContext().getAssets(),"Fonts/SST Arabic Medium.ttf" );
+        contactUs.setTypeface( customFontMedium );
+        contactUs.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getFragmentManager().beginTransaction().replace( R.id.content_navigation,new CallUsFragment() ).addToBackStack( null )
+                        .commit();
+            }
+        } );
         return view;
     }
 
     private void init() {
         toolbar=view.findViewById( R.id.who_are_we_toolbar );
         textViewHello=view.findViewById( R.id.who_are_we_text_view_hello );
-        textViewSearch=view.findViewById( R.id.who_are_we_text_view_search );
+
+        contactUs=view.findViewById( R.id.who_are_we_btn_contact );
+
+       /* iconFacebook=view.findViewById( R.id.who_are_we_icon_face);
+        iconInstgram=view.findViewById( R.id.who_are_we_icon_insta );
+        iconWhats=view.findViewById( R.id.who_are_we_icon_whats );*/
     }
 
 }

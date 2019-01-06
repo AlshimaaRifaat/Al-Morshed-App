@@ -1,6 +1,7 @@
 package com.example.shosho.almorshed.fragment;
 
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,7 +25,8 @@ import com.example.shosho.almorshed.R;
 public class WayOfSearchFragment extends Fragment {
 Toolbar toolbar;
 Typeface customFontMedium,customFontRoman;
-TextView textViewHello,textViewLine1,textViewLine2,textViewLine3,textViewLine4,textViewPlzShare;
+TextView textViewHello,textViewLine1,textViewLine2,textViewLine3,textViewLine4;
+Button PlzShare;
 ImageView iconWhats,iconInsta,iconFacebook;
 
     public WayOfSearchFragment() {
@@ -69,12 +72,15 @@ View view;
         textViewLine3.setTypeface( customFontRoman );
         textViewLine4.setTypeface( customFontRoman );
 
-        textViewPlzShare.setOnClickListener( new View.OnClickListener() {
+        PlzShare.setTypeface( customFontMedium );
+     PlzShare.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                iconWhats.setVisibility( View.VISIBLE );
-                iconInsta.setVisibility( View.VISIBLE );
-                iconFacebook.setVisibility( View.VISIBLE );
+                String message = "https://www.facebook.com/";
+                Intent share = new Intent(Intent.ACTION_SEND);
+                share.setType("text/plain");
+                share.putExtra(Intent.EXTRA_TEXT, message);
+                getActivity().startActivity(Intent.createChooser(share, "نشر "+ " الي "));
 
             }
         } );
@@ -90,7 +96,7 @@ View view;
         textViewLine3=view.findViewById( R.id.way_of_search_line_3 );
         textViewLine4=view.findViewById( R.id.way_of_search_line_4 );
 
-        textViewPlzShare=view.findViewById( R.id.way_of_search_plz_share );
+        PlzShare=view.findViewById( R.id.way_of_search_plz_share );
         iconWhats=view.findViewById( R.id.way_of_search_icon_whats );
         iconInsta=view.findViewById( R.id.way_of_search_icon_insta );
         iconFacebook=view.findViewById( R.id.way_of_search_icon_face );

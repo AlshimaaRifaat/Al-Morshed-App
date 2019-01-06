@@ -59,20 +59,22 @@
         android:layout_marginTop="@dimen/_14sdp"
         android:layout_below="@id/home_image_logo"
         />
-    <TextView
-        android:id="@+id/who_are_we_text_view_search"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/who_are_we_btn_contact"
+        android:layout_width="@dimen/_132sdp"
         android:layout_height="wrap_content"
         android:text="للتواصل معنا"
         android:textSize="@dimen/_14sdp"
-        android:textColor="#6e4839"
+        android:textColor="#fff"
         android:layout_centerInParent="true"
         android:layout_marginTop="@dimen/_55sdp"
         android:textStyle="bold"
+        android:background="@drawable/button"
+
         android:layout_below="@id/who_are_we_text_view_hello"
         />
-    <ImageView
-        android:id="@+id/way_of_search_icon_whats"
+    <!--<ImageView
+        android:id="@+id/who_are_we_icon_whats"
         android:layout_width="@dimen/_41sdp"
         android:layout_height="@dimen/_41sdp"
         android:layout_alignParentBottom="true"
@@ -87,13 +89,14 @@
         android:background="@drawable/insta_icon"
         android:layout_marginStart="@dimen/_17sdp"
         android:layout_marginBottom="@dimen/_65sdp"
-        android:layout_toEndOf="@+id/way_of_search_icon_whats"/>
+        android:layout_toEndOf="@+id/who_are_we_icon_whats"/>
     <ImageView
+        android:id="@+id/who_are_we_icon_face"
         android:layout_width="@dimen/_41sdp"
         android:layout_height="@dimen/_41sdp"
         android:layout_marginStart="@dimen/_17sdp"
         android:layout_toEndOf="@+id/who_are_we_icon_insta"
         android:background="@drawable/fb_icon"
         android:layout_marginBottom="@dimen/_65sdp"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true"/>-->
 </RelativeLayout>

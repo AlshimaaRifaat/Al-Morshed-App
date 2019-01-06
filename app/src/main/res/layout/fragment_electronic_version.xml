@@ -61,7 +61,7 @@
         android:layout_below="@id/elec_version_image_logo"
         />
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/_122sdp"
         android:layout_height="wrap_content"
         android:id="@+id/elec_version_btn_plz_share"
         android:layout_below="@id/elec_version_text_view_download"
@@ -70,9 +70,10 @@
         android:layout_marginTop="@dimen/_12sdp"
         android:text="للرجاء المشاركه"
         android:textSize="@dimen/_17sdp"
-        android:textColor="#6e4839"
+        android:background="@drawable/button"
+        android:textColor="#fff"
         android:textStyle="bold"/>
-    <ImageView
+    <!--<ImageView
         android:id="@+id/elec_version_icon_whats"
         android:layout_width="@dimen/_41sdp"
         android:layout_height="@dimen/_41sdp"
@@ -102,7 +103,7 @@
        android:layout_below="@id/elec_version_btn_plz_share"
         android:layout_marginTop="@dimen/_7sdp"
         android:visibility="gone"
-        />
+        />-->
     <Button
         android:id="@+id/elec_version_btn_download"
         android:layout_width="match_parent"

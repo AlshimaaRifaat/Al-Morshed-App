@@ -103,16 +103,18 @@
         />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/_122sdp"
         android:layout_height="wrap_content"
         android:id="@+id/way_of_search_plz_share"
         android:layout_below="@id/way_of_search_line_4"
         android:layout_centerHorizontal="true"
         android:layout_marginEnd="@dimen/_12sdp"
-
+        android:background="@drawable/button"
         android:text="للرجاء المشاركه"
+        android:layout_marginTop="@dimen/_19sdp"
+
         android:textSize="@dimen/_17sdp"
-        android:textColor="#6e4839"
+        android:textColor="#fff"
         android:textStyle="bold"/>
 <ImageView
     android:id="@+id/way_of_search_icon_whats"

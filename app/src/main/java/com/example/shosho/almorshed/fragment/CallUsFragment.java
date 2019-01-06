@@ -1,6 +1,7 @@
 package com.example.shosho.almorshed.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
@@ -9,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.example.shosho.almorshed.NavigationActivity;
 import com.example.shosho.almorshed.R;
@@ -19,6 +21,7 @@ import com.example.shosho.almorshed.R;
 public class CallUsFragment extends Fragment {
 
 Toolbar toolbar;
+ImageView iconWhats;
     public CallUsFragment() {
         // Required empty public constructor
     }
@@ -50,11 +53,24 @@ View view;
                 }
             }
         });
+
+        iconWhats.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.setPackage("com.whatsapp");
+                sendIntent.putExtra(Intent.EXTRA_TEXT, "");
+                sendIntent.setType("text/plain");
+                startActivity(sendIntent);
+            }
+        } );
         return view;
     }
 
     private void init() {
         toolbar=view.findViewById( R.id.call_us_toolbar );
+        iconWhats=view.findViewById( R.id.call_us_icon_whats );
     }
 
 }

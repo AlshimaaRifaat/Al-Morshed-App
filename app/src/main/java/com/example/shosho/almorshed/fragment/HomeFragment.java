@@ -1,9 +1,12 @@
 package com.example.shosho.almorshed.fragment;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
@@ -14,6 +17,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.Toolbar;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -25,11 +29,18 @@ import android.widget.Toast;
 import com.example.shosho.almorshed.NavigationActivity;
 import com.example.shosho.almorshed.R;
 import com.example.shosho.almorshed.SplashActivity;
+import com.example.shosho.almorshed.View.Saredata;
 import com.example.shosho.almorshed.adapter.PartSpinnerAdapter;
 import com.example.shosho.almorshed.adapter.SearchAdapter;
 import com.example.shosho.almorshed.adapter.SouretSpinnerAdapter;
 import com.example.shosho.almorshed.database.DatabaseHelper;
 import com.example.shosho.almorshed.model.Quran;
+import com.facebook.CallbackManager;
+import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.model.ShareOpenGraphAction;
+import com.facebook.share.model.ShareOpenGraphContent;
+import com.facebook.share.model.ShareOpenGraphObject;
+import com.facebook.share.widget.ShareDialog;
 
 
 import java.io.IOException;
@@ -39,7 +50,7 @@ import java.util.List;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements Saredata {
     Typeface customFontMedium,customFontRoman;
     Toolbar toolbar;
     TextView textViewHello;
@@ -57,6 +68,9 @@ public class HomeFragment extends Fragment {
     ImageView imageView;
     RecyclerView recyclerView;
     SearchAdapter searchAdapter;
+
+
+
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -69,6 +83,8 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view= inflater.inflate( R.layout.fragment_home, container, false );
+
+
         init();
 
         NavigationActivity.toggle = new ActionBarDrawerToggle(
@@ -183,18 +199,50 @@ public class HomeFragment extends Fragment {
         imageView.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+//                ShareLinkContent content = new ShareLinkContent.Builder()
+//                        .setContentUrl(Uri.parse("https://developers.facebook.com"))
+//                        .setQuote("Connect on a global scale.")
+//                        .build();
+                /*ShareOpenGraphObject object = new ShareOpenGraphObject.Builder()
+                        .putString("og:type", "fitness.course")
+                        .putString("og:title", "Sample Course")
+                        .putString("og:description", "This is a sample course.")
+                        .build();
+                ShareOpenGraphAction action = new ShareOpenGraphAction.Builder()
+                        .setActionType("fitness.runs")
+                        .putObject("fitness:course", object)
+                        .build();
+                ShareOpenGraphContent contens = new ShareOpenGraphContent.Builder()
+                        .setPreviewPropertyName("fitness:course")
+                        .setAction(action)
+                        .build();
+                ShareLinkContent linkContent = new ShareLinkContent.Builder()
+                        .setContentUrl(Uri.parse("http://developers.facebook.com/android"))
+                        .build();
+                shareDialog.show(linkContent);*/
+
                 if(editTextSearch.getText().toString().equals( "" ))
                     Toast.makeText( getContext(), "من فضلك ادخل كلمة البحث", Toast.LENGTH_SHORT ).show();
-                else {
-                    ArrayList<Quran> quranArrayList;
+               else {
+                   ArrayList<Quran> quranArrayList;
                     quranArrayList = SplashActivity.databaseHelper.getData( spinnerSourt.getSelectedItem().toString(), spinnerPart.getSelectedItem().toString()
-                            , editTextSearch.getText().toString() );
+                           , editTextSearch.getText().toString() );
 
-                    if (quranArrayList.size() == 0)
-                        Toast.makeText( getContext(), "لا توجد نتائج لهذا البحث", Toast.LENGTH_SHORT ).show();
+                   if (quranArrayList.size() == 0) {
+                      Toast.makeText( getContext(), "لا توجد نتائج لهذا البحث", Toast.LENGTH_SHORT ).show();
+                    }
+
                     searchAdapter = new SearchAdapter( getContext(), quranArrayList );
+                    searchAdapter.onclicks( HomeFragment.this );
                     recyclerView.setLayoutManager( new LinearLayoutManager( getContext() ) );
                     recyclerView.setAdapter( searchAdapter );
+                    try {
+                        InputMethodManager inputMethodManager=(InputMethodManager)getActivity().getSystemService( Context.INPUT_METHOD_SERVICE );
+                        inputMethodManager.hideSoftInputFromWindow( getActivity().getCurrentFocus().getWindowToken(),0 );
+                    }catch (Exception e)
+                    {
+
+                    }
                 }
 
 
@@ -219,4 +267,11 @@ public class HomeFragment extends Fragment {
 
     }
 
+
+    @Override
+    public void listquran(Quran list) {
+//        ShareLinkContent content = new ShareLinkContent.Builder()
+//                .setContentUrl(Uri.parse("https://developers.facebook.com"))
+//                .build();
+    }
 }

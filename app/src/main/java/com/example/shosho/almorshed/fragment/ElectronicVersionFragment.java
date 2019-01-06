@@ -1,6 +1,7 @@
 package com.example.shosho.almorshed.fragment;
 
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -10,6 +11,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,7 +25,8 @@ public class ElectronicVersionFragment extends Fragment {
 
 Toolbar toolbar;
 Typeface customFontMedium;
-TextView textViewDownload,textViewPlzShare;
+TextView textViewDownload;
+    Button PlzShare;
 ImageView iconWhats,iconInsta,iconFacebook;
     public ElectronicVersionFragment() {
         // Required empty public constructor
@@ -60,12 +63,15 @@ View view;
         customFontMedium=Typeface.createFromAsset( getContext().getAssets(),"Fonts/SST Arabic Medium.ttf" );
         textViewDownload.setTypeface( customFontMedium );
 
-        textViewPlzShare.setOnClickListener( new View.OnClickListener() {
+        PlzShare.setTypeface( customFontMedium );
+        PlzShare.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                iconWhats.setVisibility( View.VISIBLE );
-                iconInsta.setVisibility( View.VISIBLE );
-                iconFacebook.setVisibility( View.VISIBLE );
+                String message = "https://www.facebook.com/";
+                Intent share = new Intent(Intent.ACTION_SEND);
+                share.setType("text/plain");
+                share.putExtra(Intent.EXTRA_TEXT, message);
+                getActivity().startActivity(Intent.createChooser(share, "نشر "+ " الي "));
 
             }
         } );
@@ -77,10 +83,10 @@ View view;
         toolbar=view.findViewById( R.id.elec_version_toolbar );
         textViewDownload=view.findViewById( R.id.elec_version_text_view_download );
 
-        textViewPlzShare=view.findViewById( R.id.elec_version_btn_plz_share );
-        iconWhats=view.findViewById( R.id.elec_version_icon_whats);
+        PlzShare=view.findViewById( R.id.elec_version_btn_plz_share );
+        /*iconWhats=view.findViewById( R.id.elec_version_icon_whats);
         iconInsta=view.findViewById( R.id.elec_version_icon_insta );
-        iconFacebook=view.findViewById( R.id.elec_version_icon_face );
+        iconFacebook=view.findViewById( R.id.elec_version_icon_face );*/
     }
 
 }

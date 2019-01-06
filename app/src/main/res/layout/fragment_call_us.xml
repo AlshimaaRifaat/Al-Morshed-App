@@ -131,6 +131,7 @@
         android:textStyle="bold"
         />
     <ImageView
+        android:id="@+id/call_us_icon_whats"
         android:layout_width="@dimen/_37sdp"
         android:layout_height="@dimen/_37sdp"
         android:layout_below="@+id/call_us_to_call"
