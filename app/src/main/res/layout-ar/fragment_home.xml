@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.HomeFragment"
+    android:background="@drawable/vector_smart_object_copy"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/home_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_35sdp"
+            android:background="#6e4839">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="الصفحة الرئيسية"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textSize="@dimen/_19sdp"
+                    android:textStyle="bold"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:textColor="#fff"/>
+            </RelativeLayout>
+        </android.support.v7.widget.Toolbar>
+        <!--<ImageView
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="@dimen/_45sdp"
+            android:layout_below="@+id/home_toolbar"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="@dimen/_17sdp"
+            android:background="@drawable/ellipse3"/>-->
+
+        <!-- TODO: Update blank fragment layout -->
+        <ImageView
+            android:id="@+id/home_image_logo"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:background="@drawable/logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_55sdp"
+            android:scaleType="fitXY"
+            />
+        <TextView
+            android:id="@+id/home_text_view_hello"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hello"
+            android:textSize="@dimen/_15sdp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="@dimen/_10sdp"
+            android:layout_marginLeft="@dimen/_10sdp"
+            android:textStyle="bold"
+            android:textColor="#6e4839"
+            android:layout_marginTop="@dimen/_7sdp"
+            android:layout_below="@id/home_image_logo"
+            />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_70sdp"
+            android:background="#6e4839"
+            android:layout_below="@id/home_text_view_hello"
+            android:layout_marginTop="@dimen/_35sdp">
+            <RelativeLayout
+                android:id="@+id/home_relative_part"
+                android:layout_width="@dimen/_135sdp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/_5sdp"
+                android:background="#fff"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true">
+
+                <Spinner
+                    android:id="@+id/home_spinner_part"
+                    android:layout_width="@dimen/_135sdp"
+                    android:layout_height="@dimen/_37sdp"
+                    android:spinnerMode="dialog" ></Spinner>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/home_relative_sora"
+                android:layout_width="@dimen/_135sdp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:background="#fff"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/_5sdp">
+
+                <Spinner
+                    android:id="@+id/home_spinner_sora"
+                    android:layout_width="@dimen/_135sdp"
+                    android:layout_height="@dimen/_37sdp"
+                    android:spinnerMode="dialog" >
+
+                </Spinner>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+
+
+        <TextView
+            android:id="@+id/home_text_view_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ابحث هنا عن معانى كلمات القرآن"
+            android:textSize="@dimen/_14sdp"
+            android:textColor="#6e4839"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/_130sdp"
+            android:layout_below="@id/home_text_view_hello"
+            />
+        <!--<View
+            android:id="@+id/home_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_2sdp"
+            android:background="#6e4839"
+            android:layout_below="@id/home_text_view_search"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/_11sdp"
+            android:layout_marginStart="@dimen/_220sdp"
+            />-->
+<RelativeLayout
+    android:layout_width="@dimen/_167sdp"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/home_text_view_search"
+    android:id="@+id/home_relative_search"
+    android:layout_centerHorizontal="true"
+    >
+        <EditText
+            android:id="@+id/home_edit_text_search"
+            android:layout_width="@dimen/_167sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:background="@drawable/edit_text_search"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:textSize="@dimen/_14sdp"
+            android:paddingRight="@dimen/_43sdp"
+            android:paddingLeft="@dimen/_12sdp"
+            android:layout_marginBottom="@dimen/_22sdp"
+            />
+        <ImageView
+            android:id="@+id/home_icon_search"
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_22sdp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_17sdp"
+            android:background="@drawable/magnifier_copy"
+
+           />
+</RelativeLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/home_recyler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/home_relative_search"
+            android:layout_margin="@dimen/_2sdp"/>
+        <!--<Button
+            android:id="@+id/home_btn_search"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_42sdp"
+            android:background="#6e4839"
+            android:text="@string/بحث"
+            android:textSize="@dimen/_22sdp"
+            android:textColor="#fff"
+            android:paddingLeft="@dimen/_12sdp"
+            android:paddingRight="@dimen/_12sdp"
+            android:layout_alignParentBottom="true"
+            android:textStyle="bold"/>-->
+    </RelativeLayout>
+</ScrollView>
