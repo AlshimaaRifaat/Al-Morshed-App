@@ -22,6 +22,6 @@
     <string name="Pleasewriteyourmsg">من فضلك اترك رسالتك</string>
 
     <string name="Checkyourinternetconnection">تأكد من اتصالك بالانترنت </string>
-    <string name="Invalidemail">البريد إلكتروني خاطئ</string>
+    <string name="Invalidemail">البريد الالكتروني خاطئ</string>
     <string name="Pleasefullyourinformation">من فضلك,املأ البيانات الخاصه بك</string>
 </resources>
