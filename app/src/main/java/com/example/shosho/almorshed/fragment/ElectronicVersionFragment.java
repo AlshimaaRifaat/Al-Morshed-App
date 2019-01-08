@@ -16,7 +16,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.shosho.almorshed.NavigationActivity;
+import com.example.shosho.almorshed.PDFUtils;
 import com.example.shosho.almorshed.R;
+
+import java.net.URL;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -28,6 +31,9 @@ Typeface customFontMedium;
 TextView textViewDownload;
     Button PlzShare;
 ImageView iconWhats,iconInsta,iconFacebook;
+
+    Button downloadPDF;
+    String PDFurl,URL;
     public ElectronicVersionFragment() {
         // Required empty public constructor
     }
@@ -75,6 +81,20 @@ View view;
 
             }
         } );
+        URL="http://alhabib-abobakr.com/uploads/Books/2255076112023221579.pdf";
+        downloadPDF.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+              if(URL!=null)
+              {
+                  PDFUtils.showPDFUrl( getContext(),URL );
+              }else
+              {
+                  downloadPDF.setVisibility( View.GONE );
+              }
+            }
+
+        } );
         return view;
     }
 
@@ -87,6 +107,7 @@ View view;
         /*iconWhats=view.findViewById( R.id.elec_version_icon_whats);
         iconInsta=view.findViewById( R.id.elec_version_icon_insta );
         iconFacebook=view.findViewById( R.id.elec_version_icon_face );*/
+        downloadPDF=view.findViewById( R.id.elec_version_btn_download );
     }
 
 }
