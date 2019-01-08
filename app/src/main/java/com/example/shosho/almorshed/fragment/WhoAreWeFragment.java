@@ -1,7 +1,6 @@
 package com.example.shosho.almorshed.fragment;
 
 
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.shosho.almorshed.NavigationActivity;
@@ -80,7 +78,7 @@ View view;
         contactUs.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getFragmentManager().beginTransaction().replace( R.id.content_navigation,new CallUsFragment() ).addToBackStack( null )
+                getFragmentManager().beginTransaction().replace( R.id.content_navigation,new ContactFragment() ).addToBackStack( null )
                         .commit();
             }
         } );

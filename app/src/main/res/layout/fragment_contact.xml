@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/vector_smart_object_copy"
-    tools:context=".fragment.CallUsFragment">
+    tools:context=".fragment.ContactFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <android.support.v7.widget.Toolbar
@@ -38,8 +38,8 @@
         android:background="@drawable/ellipse3"/>-->
     <ImageView
         android:id="@+id/call_us_image_logo"
-        android:layout_width="@dimen/_55sdp"
-        android:layout_height="@dimen/_55sdp"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
         android:background="@drawable/logo"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/_55sdp"
@@ -51,9 +51,9 @@
         android:layout_height="wrap_content"
         android:text="الاسم"
         android:textColor="#6e4839"
-        android:textSize="@dimen/_15sdp"
+        android:textSize="@dimen/_13sdp"
         android:layout_below="@id/call_us_image_logo"
-        android:layout_marginTop="@dimen/_4sdp"
+        android:layout_marginTop="@dimen/_2sdp"
         android:layout_marginEnd="@dimen/_23sdp"
         android:layout_alignParentEnd="true"
         android:textStyle="bold"
@@ -61,21 +61,21 @@
     <EditText
         android:id="@+id/call_us_edit_text_name"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_38sdp"
+        android:layout_height="@dimen/_32sdp"
         android:layout_below="@+id/call_us_text_view_name"
         android:layout_marginStart="@dimen/_13sdp"
         android:layout_marginEnd="@dimen/_13sdp"
         android:layout_marginTop="@dimen/_8sdp"
         android:background="@drawable/edit_text_call_us"
         android:paddingStart="@dimen/_10sdp"
-        />
+       android:paddingEnd="@dimen/_13sdp" />
     <TextView
         android:id="@+id/call_us_text_view_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="الايميل"
         android:textColor="#6e4839"
-        android:textSize="@dimen/_15sdp"
+        android:textSize="@dimen/_13sdp"
         android:layout_below="@id/call_us_edit_text_name"
         android:layout_marginTop="@dimen/_12sdp"
         android:layout_marginEnd="@dimen/_23sdp"
@@ -85,13 +85,39 @@
     <EditText
         android:id="@+id/call_us_edit_text_email"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_38sdp"
+        android:layout_height="@dimen/_32sdp"
         android:layout_below="@+id/call_us_text_view_email"
         android:layout_marginStart="@dimen/_13sdp"
         android:layout_marginEnd="@dimen/_13sdp"
         android:layout_marginTop="@dimen/_8sdp"
         android:background="@drawable/edit_text_call_us"
         android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_13sdp"
+        />
+    <TextView
+        android:id="@+id/call_us_text_view_subject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="الموضوع"
+        android:textColor="#6e4839"
+        android:textSize="@dimen/_13sdp"
+        android:layout_below="@id/call_us_edit_text_email"
+        android:layout_marginTop="@dimen/_12sdp"
+        android:layout_marginEnd="@dimen/_23sdp"
+        android:layout_alignParentEnd="true"
+        android:textStyle="bold"
+        />
+    <EditText
+        android:id="@+id/call_us_edit_text_subject"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_32sdp"
+        android:layout_below="@+id/call_us_text_view_subject"
+        android:layout_marginStart="@dimen/_13sdp"
+        android:layout_marginEnd="@dimen/_13sdp"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:background="@drawable/edit_text_call_us"
+        android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_13sdp"
         />
     <TextView
         android:id="@+id/call_us_text_view_msg"
@@ -99,8 +125,8 @@
         android:layout_height="wrap_content"
         android:text="الرسالة"
         android:textColor="#6e4839"
-        android:textSize="@dimen/_15sdp"
-        android:layout_below="@id/call_us_edit_text_email"
+        android:textSize="@dimen/_13sdp"
+        android:layout_below="@id/call_us_edit_text_subject"
         android:layout_marginTop="@dimen/_12sdp"
         android:layout_marginEnd="@dimen/_23sdp"
         android:layout_alignParentEnd="true"
@@ -109,13 +135,14 @@
     <EditText
         android:id="@+id/call_us_edit_text_msg"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_55sdp"
+        android:layout_height="@dimen/_32sdp"
         android:layout_below="@+id/call_us_text_view_msg"
         android:layout_marginStart="@dimen/_13sdp"
         android:layout_marginEnd="@dimen/_13sdp"
         android:layout_marginTop="@dimen/_8sdp"
         android:background="@drawable/edit_text_call_us"
         android:paddingStart="@dimen/_10sdp"
+        android:paddingEnd="@dimen/_13sdp"
         />
     <TextView
         android:id="@+id/call_us_to_call"
@@ -132,8 +159,8 @@
         />
     <ImageView
         android:id="@+id/call_us_icon_whats"
-        android:layout_width="@dimen/_37sdp"
-        android:layout_height="@dimen/_37sdp"
+        android:layout_width="@dimen/_35sdp"
+        android:layout_height="@dimen/_35sdp"
         android:layout_below="@+id/call_us_to_call"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="@dimen/_140sdp"

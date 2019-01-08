@@ -30,8 +30,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     
     implementation 'com.android.support:recyclerview-v7:27.1.1'
-
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
 
     implementation 'com.facebook.android:facebook-share:[4,5)'
+    implementation 'com.hendiware.utils:futils:1.6.91'
 
 }

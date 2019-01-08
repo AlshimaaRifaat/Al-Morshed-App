@@ -15,4 +15,13 @@
 
     <string name="facebook_app_id">2264752733558651</string>
     <string name="facebook_login_protocol_scheme">fb2264752733558651</string>
+
+    <string name="Pleasewriteyourname">من فضلك اكتب اسمك</string>
+    <string name="Pleasewriteyouremail">من فضلك اكتب بريدك الالكترونى</string>
+    <string name="Pleasewriteyoursubject">من فضلك اكتب الموضوع</string>
+    <string name="Pleasewriteyourmsg">من فضلك اترك رسالتك</string>
+
+    <string name="Checkyourinternetconnection">تأكد من اتصالك بالانترنت </string>
+    <string name="Invalidemail">البريد إلكتروني خاطئ</string>
+    <string name="Pleasefullyourinformation">من فضلك,املأ البيانات الخاصه بك</string>
 </resources>
