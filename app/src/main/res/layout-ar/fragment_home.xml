@@ -147,6 +147,8 @@
             android:paddingRight="@dimen/_43sdp"
             android:paddingLeft="@dimen/_12sdp"
             android:layout_marginBottom="@dimen/_22sdp"
+            android:imeOptions="actionSearch"
+            android:maxLines="1"
             />
         <ImageView
             android:id="@+id/home_icon_search"

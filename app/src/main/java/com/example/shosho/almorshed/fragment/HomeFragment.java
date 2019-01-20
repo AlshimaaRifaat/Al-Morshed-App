@@ -13,10 +13,12 @@ import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.Toolbar;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -69,7 +71,7 @@ public class HomeFragment extends Fragment implements Saredata {
     RecyclerView recyclerView;
     SearchAdapter searchAdapter;
 
-
+EditText searchEditText;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -250,6 +252,72 @@ public class HomeFragment extends Fragment implements Saredata {
 
             }
         } );
+
+        searchEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    if(editTextSearch.getText().toString().equals( "" ))
+                        Toast.makeText( getContext(), "من فضلك ادخل كلمة البحث", Toast.LENGTH_SHORT ).show();
+                    else {
+                        ArrayList<Quran> quranArrayList;
+                        quranArrayList = SplashActivity.databaseHelper.getData( spinnerSourt.getSelectedItem().toString(), spinnerPart.getSelectedItem().toString()
+                                , editTextSearch.getText().toString() );
+
+                        if (quranArrayList.size() == 0) {
+                            Toast.makeText( getContext(), "لا توجد نتائج لهذا البحث", Toast.LENGTH_SHORT ).show();
+                        }
+
+                        searchAdapter = new SearchAdapter( getContext(), quranArrayList );
+                        searchAdapter.onclicks( HomeFragment.this );
+                        recyclerView.setLayoutManager( new LinearLayoutManager( getContext() ) );
+                        recyclerView.setAdapter( searchAdapter );
+                        try {
+                            InputMethodManager inputMethodManager=(InputMethodManager)getActivity().getSystemService( Context.INPUT_METHOD_SERVICE );
+                            inputMethodManager.hideSoftInputFromWindow( getActivity().getCurrentFocus().getWindowToken(),0 );
+                        }catch (Exception e)
+                        {
+
+                        }
+                    }
+                    return true;
+                }
+                return false;
+            }
+        });
+//        searchEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+//            @Override
+//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+//                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+//                {
+//                    if(editTextSearch.getText().toString().equals( "" ))
+//                        Toast.makeText( getContext(), "من فضلك ادخل كلمة البحث", Toast.LENGTH_SHORT ).show();
+//                    else {
+//                        ArrayList<Quran> quranArrayList;
+//                        quranArrayList = SplashActivity.databaseHelper.getData( spinnerSourt.getSelectedItem().toString(), spinnerPart.getSelectedItem().toString()
+//                                , editTextSearch.getText().toString() );
+//
+//                        if (quranArrayList.size() == 0) {
+//                            Toast.makeText( getContext(), "لا توجد نتائج لهذا البحث", Toast.LENGTH_SHORT ).show();
+//                        }
+//
+//                        searchAdapter = new SearchAdapter( getContext(), quranArrayList );
+//                        searchAdapter.onclicks( HomeFragment.this );
+//                        recyclerView.setLayoutManager( new LinearLayoutManager( getContext() ) );
+//                        recyclerView.setAdapter( searchAdapter );
+//                        try {
+//                            InputMethodManager inputMethodManager=(InputMethodManager)getActivity().getSystemService( Context.INPUT_METHOD_SERVICE );
+//                            inputMethodManager.hideSoftInputFromWindow( getActivity().getCurrentFocus().getWindowToken(),0 );
+//                        }catch (Exception e)
+//                        {
+//
+//                        }
+//                    }
+//                    return true;
+//                }
+//                    return false;
+//                }
+//            });
         return view;
     }
 
@@ -263,6 +331,7 @@ public class HomeFragment extends Fragment implements Saredata {
         editTextSearch=view.findViewById( R.id.home_edit_text_search );
         imageView=view.findViewById( R.id.home_icon_search );
         recyclerView=view.findViewById( R.id.home_recyler );
+        searchEditText=view.findViewById( R.id.home_edit_text_search );
 
 
     }
