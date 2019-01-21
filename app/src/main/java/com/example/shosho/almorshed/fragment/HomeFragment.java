@@ -22,6 +22,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -72,6 +73,11 @@ public class HomeFragment extends Fragment implements Saredata {
     SearchAdapter searchAdapter;
 
 EditText searchEditText;
+
+    ArrayList<Quran> quranArrayList;
+
+
+    Button shareAllSearchResult;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -205,50 +211,7 @@ EditText searchEditText;
 //                        .setContentUrl(Uri.parse("https://developers.facebook.com"))
 //                        .setQuote("Connect on a global scale.")
 //                        .build();
-                /*ShareOpenGraphObject object = new ShareOpenGraphObject.Builder()
-                        .putString("og:type", "fitness.course")
-                        .putString("og:title", "Sample Course")
-                        .putString("og:description", "This is a sample course.")
-                        .build();
-                ShareOpenGraphAction action = new ShareOpenGraphAction.Builder()
-                        .setActionType("fitness.runs")
-                        .putObject("fitness:course", object)
-                        .build();
-                ShareOpenGraphContent contens = new ShareOpenGraphContent.Builder()
-                        .setPreviewPropertyName("fitness:course")
-                        .setAction(action)
-                        .build();
-                ShareLinkContent linkContent = new ShareLinkContent.Builder()
-                        .setContentUrl(Uri.parse("http://developers.facebook.com/android"))
-                        .build();
-                shareDialog.show(linkContent);*/
-
-                if(editTextSearch.getText().toString().equals( "" ))
-                    Toast.makeText( getContext(), "من فضلك ادخل كلمة البحث", Toast.LENGTH_SHORT ).show();
-               else {
-                   ArrayList<Quran> quranArrayList;
-                    quranArrayList = SplashActivity.databaseHelper.getData( spinnerSourt.getSelectedItem().toString(), spinnerPart.getSelectedItem().toString()
-                           , editTextSearch.getText().toString() );
-
-                   if (quranArrayList.size() == 0) {
-                      Toast.makeText( getContext(), "لا توجد نتائج لهذا البحث", Toast.LENGTH_SHORT ).show();
-                    }
-
-                    searchAdapter = new SearchAdapter( getContext(), quranArrayList );
-                    searchAdapter.onclicks( HomeFragment.this );
-                    recyclerView.setLayoutManager( new LinearLayoutManager( getContext() ) );
-                    recyclerView.setAdapter( searchAdapter );
-                    try {
-                        InputMethodManager inputMethodManager=(InputMethodManager)getActivity().getSystemService( Context.INPUT_METHOD_SERVICE );
-                        inputMethodManager.hideSoftInputFromWindow( getActivity().getCurrentFocus().getWindowToken(),0 );
-                    }catch (Exception e)
-                    {
-
-                    }
-                }
-
-
-
+                performSearch();
 
             }
         } );
@@ -257,68 +220,68 @@ EditText searchEditText;
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    if(editTextSearch.getText().toString().equals( "" ))
-                        Toast.makeText( getContext(), "من فضلك ادخل كلمة البحث", Toast.LENGTH_SHORT ).show();
-                    else {
-                        ArrayList<Quran> quranArrayList;
-                        quranArrayList = SplashActivity.databaseHelper.getData( spinnerSourt.getSelectedItem().toString(), spinnerPart.getSelectedItem().toString()
-                                , editTextSearch.getText().toString() );
-
-                        if (quranArrayList.size() == 0) {
-                            Toast.makeText( getContext(), "لا توجد نتائج لهذا البحث", Toast.LENGTH_SHORT ).show();
-                        }
-
-                        searchAdapter = new SearchAdapter( getContext(), quranArrayList );
-                        searchAdapter.onclicks( HomeFragment.this );
-                        recyclerView.setLayoutManager( new LinearLayoutManager( getContext() ) );
-                        recyclerView.setAdapter( searchAdapter );
-                        try {
-                            InputMethodManager inputMethodManager=(InputMethodManager)getActivity().getSystemService( Context.INPUT_METHOD_SERVICE );
-                            inputMethodManager.hideSoftInputFromWindow( getActivity().getCurrentFocus().getWindowToken(),0 );
-                        }catch (Exception e)
-                        {
-
-                        }
-                    }
+               performSearch();
                     return true;
                 }
                 return false;
             }
         });
-//        searchEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-//            @Override
-//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-//                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-//                {
-//                    if(editTextSearch.getText().toString().equals( "" ))
-//                        Toast.makeText( getContext(), "من فضلك ادخل كلمة البحث", Toast.LENGTH_SHORT ).show();
-//                    else {
-//                        ArrayList<Quran> quranArrayList;
-//                        quranArrayList = SplashActivity.databaseHelper.getData( spinnerSourt.getSelectedItem().toString(), spinnerPart.getSelectedItem().toString()
-//                                , editTextSearch.getText().toString() );
-//
-//                        if (quranArrayList.size() == 0) {
-//                            Toast.makeText( getContext(), "لا توجد نتائج لهذا البحث", Toast.LENGTH_SHORT ).show();
-//                        }
-//
-//                        searchAdapter = new SearchAdapter( getContext(), quranArrayList );
-//                        searchAdapter.onclicks( HomeFragment.this );
-//                        recyclerView.setLayoutManager( new LinearLayoutManager( getContext() ) );
-//                        recyclerView.setAdapter( searchAdapter );
-//                        try {
-//                            InputMethodManager inputMethodManager=(InputMethodManager)getActivity().getSystemService( Context.INPUT_METHOD_SERVICE );
-//                            inputMethodManager.hideSoftInputFromWindow( getActivity().getCurrentFocus().getWindowToken(),0 );
-//                        }catch (Exception e)
-//                        {
-//
-//                        }
-//                    }
-//                    return true;
-//                }
-//                    return false;
-//                }
-//            });
+        shareAllSearchResult.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               performShareAllResult();
+              // shareAllSearchResult.setVisibility( View.VISIBLE );
+            }
+        } );
         return view;
+    }
+    Intent share;
+    private void performShareAllResult() {
+        String AllSearchResult="";
+        for (int i=0;i<quranArrayList.size();i++)
+        {
+
+            AllSearchResult=AllSearchResult+"كلمة "+quranArrayList.get( i ).getWord1()+
+                    " ظهرت في: "+ quranArrayList.get( i ).getSouret()+" "+
+                    quranArrayList.get( i ).getPart()+ " ومعناها: "+quranArrayList.get( i ).getMeaning()+"\n";
+            // Toast.makeText( getContext(), AllSearchResult, Toast.LENGTH_SHORT ).show();
+
+
+        }
+        share = new Intent(Intent.ACTION_SEND);
+        share.setType("text/plain");
+        share.putExtra(Intent.EXTRA_TEXT, AllSearchResult);
+
+        startActivity(Intent.createChooser(share, " نشر نتيجه البحث الى"));
+
+    }
+
+    private void performSearch() {
+        if(editTextSearch.getText().toString().equals( "" ))
+            Toast.makeText( getContext(), "من فضلك ادخل كلمة البحث", Toast.LENGTH_SHORT ).show();
+        else {
+
+            quranArrayList = SplashActivity.databaseHelper.getData( spinnerSourt.getSelectedItem().toString(), spinnerPart.getSelectedItem().toString()
+                    , editTextSearch.getText().toString() );
+
+
+            if (quranArrayList.size() == 0) {
+                Toast.makeText( getContext(), "لا توجد نتائج لهذا البحث", Toast.LENGTH_SHORT ).show();
+            }
+
+            searchAdapter = new SearchAdapter( getContext(), quranArrayList );
+           // searchAdapter.onclicks( HomeFragment.this );
+            recyclerView.setLayoutManager( new LinearLayoutManager( getContext() ) );
+            recyclerView.setAdapter( searchAdapter );
+            try {
+                InputMethodManager inputMethodManager=(InputMethodManager)getActivity().getSystemService( Context.INPUT_METHOD_SERVICE );
+                inputMethodManager.hideSoftInputFromWindow( getActivity().getCurrentFocus().getWindowToken(),0 );
+            }catch (Exception e)
+            {
+
+            }
+        }
+
     }
 
     private void init() {
@@ -332,15 +295,11 @@ EditText searchEditText;
         imageView=view.findViewById( R.id.home_icon_search );
         recyclerView=view.findViewById( R.id.home_recyler );
         searchEditText=view.findViewById( R.id.home_edit_text_search );
+        shareAllSearchResult=view.findViewById( R.id.home_image_share_all );
 
 
     }
 
 
-    @Override
-    public void listquran(Quran list) {
-//        ShareLinkContent content = new ShareLinkContent.Builder()
-//                .setContentUrl(Uri.parse("https://developers.facebook.com"))
-//                .build();
-    }
+
 }

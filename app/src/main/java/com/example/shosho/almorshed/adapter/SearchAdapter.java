@@ -24,7 +24,7 @@ import java.util.List;
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder> {
     private Context context;
     private List<Quran> quranList;
-     Saredata saredata;
+     /*Saredata saredata;*/
 
     public SearchAdapter(Context context, List<Quran> quranList) {
         this.context = context;
@@ -37,10 +37,10 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.ViewHolder
         View view=LayoutInflater.from( context ).inflate(R.layout.row_search,parent,false);
         return new SearchAdapter.ViewHolder(view);
     }
-    public void onclicks(Saredata saredata){
+   /* public void onclicks(Saredata saredata){
 
         this.saredata=saredata;
-    }
+    }*/
     @Override
     public void onBindViewHolder(@NonNull SearchAdapter.ViewHolder holder, final int position) {
         holder.sourt.setText( quranList.get( position ).getSouret() );

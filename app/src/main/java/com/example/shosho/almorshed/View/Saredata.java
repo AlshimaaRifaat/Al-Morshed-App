@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface Saredata {
 
-    void listquran(Quran list);
+    /*void listquran(Quran list);*/
 }

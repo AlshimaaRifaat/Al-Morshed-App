@@ -167,6 +167,22 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/home_relative_search"
             android:layout_margin="@dimen/_2sdp"/>
+       <Button
+            android:layout_width="@dimen/_122sdp"
+            android:layout_height="wrap_content"
+            android:id="@+id/home_image_share_all"
+            android:layout_below="@id/home_recyler"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="@dimen/_12sdp"
+            android:background="@drawable/button"
+            android:text="مشاركة الكل"
+            android:layout_marginTop="@dimen/_17sdp"
+           android:layout_marginBottom="@dimen/_12sdp"
+            android:textSize="@dimen/_17sdp"
+            android:textColor="#fff"
+            android:textStyle="bold"
+
+            />
         <!--<Button
             android:id="@+id/home_btn_search"
             android:layout_width="match_parent"
